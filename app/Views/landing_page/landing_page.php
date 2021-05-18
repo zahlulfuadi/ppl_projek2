@@ -142,13 +142,12 @@
 
         <!-- jumbotron -->
         <div class="relative bg-darkBlue overflow-hidden">
-            <div class="max-w-7xl mx-auto" style="background-image: url('../img/components/background/bg-jumbotron.png');">
-                <!-- <img class="inline-block z-0" src="../img/components/background/bg-jumbotron.png" alt="background jumbotron"> -->
+            <div class="max-w-7xl mx-auto h-screen-3/4 bg-jumbotron bg-cover bg-bottom -mb-4">
                 <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
                     <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                         <div class="sm:text-center lg:text-left">
                             <h1 class="text-4xl tracking-tight font-heading font-extrabold text-pewter sm:text-5xl md:text-6xl">
-                                <span class="block xl:inline">TELUSURI</span>
+                                <span class="block xl:pt-20">TELUSURI</span>
                                 <span class="block xl:inline">RATUSAN SUBJEK</span>
                             </h1>
                             <p class="mt-3 text-base font-body text-pewter sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-lg lg:mx-0">
@@ -160,14 +159,80 @@
             </div>
         </div>
 
-        <div class="h-32 p-10 bg-jumbotron" style="background-image: url('../img/components/background/bg-jumbotron.png');">
-            <p>halo</p>
-            <img src="../img/components/background/bg-jumbotron.png" alt="">
+
+        <!-- bidang studi -->
+        <div class="relative bg-banana overflow-hidden">
+            <div class="max-w-7xl mx-auto h-auto -mb-4">
+                <div class="relative z-10 pb-8 px-4 sm:px-6 lg:px-8 sm:pb-16 md:pb-20 w-full lg:pb-28 xl:pb-32">
+                    <h1 class="text-3xl tracking-tight font-heading font-extrabold text-darkBlue sm:text-4xl md:text-5xl">
+                        <span class="block xl:pt-20 xl:pb-12 text-center">Bidang Studi yang Tersedia</span>
+                    </h1>
+                    <div class="text-lg leading-loose font-body font-semibold text-darkBlue sm:text-xl md:text-2xl">
+                        <?php for ($i = 0; $i < 9; $i++) { ?>
+                            <div class="flex leading-10 py-2">
+                                <div class="flex-1 text-center">
+                                    Matematika
+                                </div>
+                                <div class="flex-1 text-center">
+                                    Matematika
+                                </div>
+                                <div class="flex-1 text-center">
+                                    Matematika
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <h1 class="text-3xl tracking-tight font-heading font-extrabold text-darkBlue sm:text-4xl md:text-5xl">
+                        <span class="block xl:pt-12 text-center">.. dan masih banyak lagi!</span>
+                    </h1>
+                </div>
+            </div>
         </div>
 
 
+        <!-- cara kerja -->
+        <div class="relative bg-white overflow-hidden">
+            <div class="max-w-7xl mx-auto h-auto -mb-4">
+                <div class="relative z-10 pb-8 px-4 sm:px-6 lg:px-8 sm:pb-16 md:pb-20 w-full lg:pb-28 xl:pb-32">
+                    <section class="container mx-auto px-6 p-10">
+                        <h1 class="text-3xl tracking-tight font-heading font-extrabold text-darkBlue sm:text-4xl md:text-5xl text-center">
+                            <span class="block xl:pt-20">Bagaimana cara kerja</span>
+                            <span class="block xl:inline">CariGuruPrivat</span>
+                        </h1>
 
+                        <div class="flex items-center flex-wrap my-20 px-12">
+                            <div class="w-full md:w-1/2 md:px-5">
+                                <h4 class="text-2xl tracking-tight font-heading font-extrabold text-darkBlue sm:text-3xl md:text-4xl">Temukan Guru yang Terbaik</h4>
+                                <p class="mt-3 text-base font-body text-gray-700 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-lg lg:mx-0">Dengan fitur pencarian, kamu bisa melihat daftar guru yang sesuai dengan kebutuhanmu, lengkap dengan detail tarif, lokasi, dan rincian lebih lanjut yang dapat dilihat pada profilnya.</p>
+                            </div>
+                            <div class="w-full md:w-1/2 px-16">
+                                <img src="/img/components/ilustrasi/ilustrasi-01.png" alt="Monitoring" />
+                            </div>
+                        </div>
 
+                        <div class="flex items-center flex-wrap mb-20">
+                            <div class="w-full md:w-1/2">
+                                <img src="/img/components/ilustrasi/ilustrasi-02a.png" alt="Reporting" />
+                            </div>
+                            <div class="w-full md:w-1/2 pl-10">
+                                <h4 class="text-3xl text-gray-800 font-bold mb-3">Reporting</h4>
+                                <p class="text-gray-600 mb-8">Our Smart Health Monitoring Wristwatch can generate a comprehensive report on your vitals depending on your settings either daily, weekly, monthly, quarterly or yearly.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center flex-wrap mb-20">
+                            <div class="w-full md:w-1/2">
+                                <h4 class="text-3xl text-gray-800 font-bold mb-3">Syncing</h4>
+                                <p class="text-gray-600 mb-8">Our Smart Health Monitoring Wristwatch allows you to sync data across all your mobile devices whether iOS, Android or Windows OS and also to your laptop whether MacOS, GNU/Linux or Windows OS.</p>
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <img src="/img/components/ilustrasi/ilustrasi-02b.png" alt="Syncing" />
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
 
 
 
