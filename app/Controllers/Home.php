@@ -9,4 +9,9 @@ class Home extends BaseController
 		// return view('welcome_message');
 		return view('landing_page/landing_page');
 	}
+	public function index2()
+	{
+		// return view('welcome_message');
+		return view('landing_page/landing_page_after_login');
+	}
 }
