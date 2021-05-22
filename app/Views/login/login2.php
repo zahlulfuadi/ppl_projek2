@@ -44,26 +44,27 @@
             <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32 mx-6">
                 <div class="bg-pewter px-4 py-4 my-10 rounded-xl shadow-md text-black w-full">
                     <h1 class="mt-4 text-3xl text-center">Selamat Datang kembali di</h1>
-                    <h1 class="mb-12 text-3xl text-center font-bold">CariGuruPrivat!</h1>
-                    <div class="mx-8 text-center">
-
-                        <span>Login sebagai..</span>
-                        <div class="grid grid-cols-2 gap-3 place-items-center mt-2 mb-24">
-                            <a href="/login2">
-                                <div class="bg-white cursor-pointer hover:bg-blueGray hover:border-darkBlue border-2 border-gray-300 py-2 mx-2 rounded-xl text-center">
-                                    <img src="/img/components/icon/guru.png" class="w-4/5 mx-auto p-1 my-2" alt="icon guru">
-                                    <span>Guru</span>
-                                </div>
-                            </a>
-                            <a href="/login2">
-                                <div class="bg-white cursor-pointer hover:bg-blueGray hover:border-darkBlue border-2 border-gray-300 py-2 mx-2 rounded-xl text-center">
-                                    <img src="/img/components/icon/murid.png" class="w-4/5 mx-auto p-1 my-2" alt="icon guru">
-                                    <span>Murid</span>
-                                </div>
-                            </a>
+                    <h1 class="mb-6 text-3xl text-center font-bold">CariGuruPrivat!</h1>
+                    <div class="mx-8">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold" for="email">
+                                Email
+                            </label>
+                            <input id="email" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700 w-full p-1.5 rounded-2xl mb-2" name="email" placeholder="" />
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold" for="password">
+                                Password
+                            </label>
+                            <input id="password" type="password" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="password" placeholder="" />
                         </div>
 
-                        <div class="text-center text-sm text-grey-dark mt-4">
+                        <div class="text-center">
+                            <button type="submit" class="w-auto px-10 text-center py-2 rounded-full bg-blueGray text-white hover:bg-darkBlue focus:outline-none mt-8" onclick="window.location='http://localhost:8080/sudahlogin'">Login</button>
+                        </div>
+
+
+                        <div class="text-center text-sm text-grey-dark mt-20">
                             Belum punya akun ?
                             <a class="no-underline border-b border-grey-dark text-blue-600" href="/register">
                                 Daftar

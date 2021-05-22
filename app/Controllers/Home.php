@@ -24,4 +24,14 @@ class Home extends BaseController
 		// return view('welcome_message');
 		return view('login/register');
 	}
+	public function login()
+	{
+		// return view('welcome_message');
+		return view('login/login');
+	}
+	public function login2()
+	{
+		// return view('welcome_message');
+		return view('login/login2');
+	}
 }
