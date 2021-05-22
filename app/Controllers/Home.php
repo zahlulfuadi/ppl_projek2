@@ -14,4 +14,9 @@ class Home extends BaseController
 		// return view('welcome_message');
 		return view('landing_page/landing_page_after_login');
 	}
+	public function cari()
+	{
+		// return view('welcome_message');
+		return view('search/search');
+	}
 }
