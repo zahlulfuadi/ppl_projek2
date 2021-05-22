@@ -46,9 +46,9 @@
                     <div class="ml-4 flex md:ml-6 items-baseline space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 
-                        <a href="#" class="text-gray-700 hover:text-black px-3 py-2 rounded-md text-sm font-bold">Daftar</a>
+                        <a href="/register" class="text-gray-700 hover:text-black px-3 py-2 rounded-md text-sm font-bold">Daftar</a>
 
-                        <a href="#" class="text-gray-700 hover:text-black px-3 py-2 rounded-md text-sm font-bold">Masuk</a>
+                        <a href="/login" class="text-gray-700 hover:text-black px-3 py-2 rounded-md text-sm font-bold">Masuk</a>
                     </div>
                 </div>
             </div>

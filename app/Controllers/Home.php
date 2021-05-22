@@ -19,4 +19,9 @@ class Home extends BaseController
 		// return view('welcome_message');
 		return view('search/search');
 	}
+	public function register()
+	{
+		// return view('welcome_message');
+		return view('login/register');
+	}
 }
