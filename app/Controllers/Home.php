@@ -44,4 +44,9 @@ class Home extends BaseController
 		// return view('welcome_message');
 		return view('profile/my_profile');
 	}
+	public function editProfile()
+	{
+		// return view('welcome_message');
+		return view('profile/edit_profile');
+	}
 }

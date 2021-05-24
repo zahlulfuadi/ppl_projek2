@@ -38,6 +38,7 @@ $routes->get('/login', 'Home::login');
 $routes->get('/login2', 'Home::login2');
 $routes->get('/register', 'Home::register');
 $routes->get('/myprofile', 'Home::myProfile');
+$routes->get('/editprofile', 'Home::editProfile');
 $routes->get('/profilguru', 'Home::profilGuru');
 
 /*
