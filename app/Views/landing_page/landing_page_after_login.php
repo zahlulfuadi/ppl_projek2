@@ -116,6 +116,79 @@
 
 
 
+<!-- Modal Belum Login -->
+<div class="modal opacity-0 pointer-events-none fixed w-full h-full z-50 top-0 left-0 flex items-center justify-center overflow-y-auto" id="tambahSubjekModal">
+    <div class="modal-overlay modal-close absolute w-full h-full bg-gray-900 opacity-75 bg-scroll"></div>
+
+    <div class="modal-container bg-pewter w-full md:max-w-xs mx-auto md:mt-20 rounded-xl shadow-lg z-50">
+
+        <!-- Add margin if you want to see some of the overlay behind the modal-->
+        <div class="modal-content pt-4 text-center">
+            <!--Title-->
+            <div class="relative flex flex-col items-center pb-3">
+                <p class="text-base text-darkBlue font-semibold font-body px-5">Mohon maaf, anda harus login terlebih dahulu</p>
+            </div>
+
+            <div class="flex w-full border-t-2 border-gray-600">
+                <div class="w-1/2 border-r-2 border-gray-600 py-2 text-center">
+                    <span class="font-semibold text-darkBlue">Login</span>
+                </div>
+                <div class="w-1/2 py-2">
+                    <span class="font-semibold text-darkBlue">Kembali</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    var openmodal = document.querySelectorAll('.modal-open')
+    let selectedModalTargetId = ''
+    for (var i = 0; i < openmodal.length; i++) {
+        openmodal[i].addEventListener('click', function(event) {
+            selectedModalTargetId = event.target.attributes.getNamedItem('data-target').value
+            event.preventDefault()
+            toggleModal()
+        })
+    }
+
+    const overlay = document.querySelector('.modal-overlay')
+    overlay.addEventListener('click', toggleModal)
+
+    var closemodal = document.querySelectorAll('.modal-close')
+    for (var i = 0; i < closemodal.length; i++) {
+        closemodal[i].addEventListener('click', toggleModal)
+    }
+
+    document.onkeydown = function(evt) {
+        evt = evt || window.event
+        var isEscape = false
+        if ("key" in evt) {
+            isEscape = (evt.key === "Escape" || evt.key === "Esc")
+        } else {
+            isEscape = (evt.keyCode === 27)
+        }
+        if (isEscape && document.body.classList.contains('modal-active')) {
+            toggleModal()
+        }
+    }
+
+    function toggleModal() {
+        if (!selectedModalTargetId) {
+            return
+        }
+        const body = document.querySelector('body')
+        const modal = document.getElementById(selectedModalTargetId)
+        modal.classList.toggle('opacity-0')
+        modal.classList.toggle('pointer-events-none')
+        body.classList.toggle('modal-active')
+    }
+</script>
+
+
+
 
 
 <?= $this->endSection() ?>
