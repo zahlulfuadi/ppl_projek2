@@ -40,7 +40,9 @@ $routes->get('/register', 'Home::register');
 $routes->get('/myprofile', 'Home::myProfile');
 $routes->get('/editprofile', 'Home::editProfile');
 $routes->get('/profilguru', 'Home::profilGuru');
+$routes->post('/searchresults', 'Home::searchResult');
 
+$routes->get('/searchresults', 'Home::searchResult');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
