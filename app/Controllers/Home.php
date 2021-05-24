@@ -34,4 +34,14 @@ class Home extends BaseController
 		// return view('welcome_message');
 		return view('login/login2');
 	}
+	public function profilGuru()
+	{
+		// return view('welcome_message');
+		return view('profile/teacher_profile');
+	}
+	public function myProfile()
+	{
+		// return view('welcome_message');
+		return view('profile/my_profile');
+	}
 }
