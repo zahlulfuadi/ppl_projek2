@@ -46,23 +46,24 @@
                     <h1 class="mt-4 text-3xl text-center">Selamat Datang kembali di</h1>
                     <h1 class="mb-6 text-3xl text-center font-bold">CariGuruPrivat!</h1>
                     <div class="mx-8">
-                        <div class="mb-6">
-                            <label class="block text-gray-700 text-sm font-bold" for="email">
-                                Email
-                            </label>
-                            <input id="email" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700 w-full p-1.5 rounded-2xl mb-2" name="email" placeholder="" />
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 text-sm font-bold" for="password">
-                                Password
-                            </label>
-                            <input id="password" type="password" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="password" placeholder="" />
-                        </div>
+                        <form action="/ceklogin" method="post">
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-bold" for="email">
+                                    Email
+                                </label>
+                                <input id="email" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700 w-full p-1.5 rounded-2xl mb-2" name="email" placeholder="" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold" for="password">
+                                    Password
+                                </label>
+                                <input id="password" type="password" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="password" placeholder="" required>
+                            </div>
 
-                        <div class="text-center">
-                            <button type="submit" class="w-auto px-10 text-center py-2 rounded-full bg-blueGray text-white hover:bg-darkBlue focus:outline-none mt-8" onclick="window.location='http://localhost:8080/sudahlogin'">Login</button>
-                        </div>
-
+                            <div class="text-center">
+                                <button type="submit" class="w-auto px-10 text-center py-2 rounded-full bg-blueGray text-white hover:bg-darkBlue focus:outline-none mt-8">Login</button>
+                            </div>
+                        </form>
 
                         <div class="text-center text-sm text-grey-dark mt-20">
                             Belum punya akun ?
