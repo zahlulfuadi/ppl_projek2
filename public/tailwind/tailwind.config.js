@@ -11,6 +11,7 @@ module.exports = {
         snow : '#F9F9F9',
       },
       fontFamily: {
+        logo: ['Rene Bieder - Gentona ExtraBold DEMO'],
         heading: ['Oswald'],
         body: ['Montserrat'],
       },

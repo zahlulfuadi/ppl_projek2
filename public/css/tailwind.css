@@ -11711,6 +11711,10 @@ video {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.font-logo {
+  font-family: Rene Bieder - Gentona ExtraBold DEMO;
+}
+
 .font-heading {
   font-family: Oswald;
 }
@@ -32789,6 +32793,11 @@ body {
   font-family: Montserrat;
 }
 
+.bg-jumbotron {
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -43948,6 +43957,10 @@ body {
 
   .sm\:font-mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .sm\:font-logo {
+    font-family: Rene Bieder - Gentona ExtraBold DEMO;
   }
 
   .sm\:font-heading {
@@ -76013,6 +76026,10 @@ body {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .md\:font-logo {
+    font-family: Rene Bieder - Gentona ExtraBold DEMO;
+  }
+
   .md\:font-heading {
     font-family: Oswald;
   }
@@ -108074,6 +108091,10 @@ body {
 
   .lg\:font-mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .lg\:font-logo {
+    font-family: Rene Bieder - Gentona ExtraBold DEMO;
   }
 
   .lg\:font-heading {
@@ -140139,6 +140160,10 @@ body {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .xl\:font-logo {
+    font-family: Rene Bieder - Gentona ExtraBold DEMO;
+  }
+
   .xl\:font-heading {
     font-family: Oswald;
   }
@@ -172200,6 +172225,10 @@ body {
 
   .\32xl\:font-mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .\32xl\:font-logo {
+    font-family: Rene Bieder - Gentona ExtraBold DEMO;
   }
 
   .\32xl\:font-heading {
