@@ -8,11 +8,11 @@
             <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                 <div class="sm:text-center lg:text-left">
                     <h1 class="text-4xl tracking-tight font-heading font-extrabold text-pewter sm:text-5xl md:text-6xl">
-                        <span class="block xl:pt-20">TELUSURI</span>
+                        <span class="block pt-20">TELUSURI</span>
                         <span class="block xl:inline">RATUSAN SUBJEK</span>
                     </h1>
                     <p class="mt-3 text-base font-body text-pewter sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-lg lg:mx-0">
-                        Apapun yang ingin kamu pelajari, CariGuruPrivat adalah solusi lengkap dalam satu aplikasi. Ayo lejitkan potensimu!
+                        Apapun yang ingin kamu pelajari, <span class="font-logo font-black">CariGuruPrivat</span> adalah solusi lengkap dalam satu aplikasi. Ayo lejitkan potensimu!
                     </p>
                 </div>
             </main>
@@ -56,9 +56,9 @@
     <div class="max-w-7xl mx-auto h-auto -mb-4">
         <div class="relative z-10 pb-8 px-4 sm:px-6 lg:px-8 sm:pb-10 w-full md:pb-12 xl:pb-16">
             <section class="container mx-auto px-6 p-10">
-                <h1 class="text-3xl tracking-tight font-heading font-extrabold text-darkBlue sm:text-4xl md:text-5xl text-center">
-                    <span class="block xl:pt-20">Bagaimana cara kerja</span>
-                    <span class="block xl:inline">CariGuruPrivat</span>
+                <h1 class="text-3xl text-darkBlue sm:text-4xl md:text-5xl text-center">
+                    <span class="block xl:pt-20 font-heading font-extrabold leading-tight">Bagaimana cara kerja</span>
+                    <span class="block xl:inline tracking-tight font-logo font-black">CariGuruPrivat</span>
                 </h1>
 
                 <div class="flex items-center flex-wrap my-20 px-12">
@@ -93,6 +93,7 @@
 
 
 
+
 <!-- tombol cari -->
 <div class="relative bg-blueGray overflow-hidden pb-20">
     <div class="mx-auto h-screen-3/4 -mb-4">
@@ -103,16 +104,15 @@
                         <span class="block xl:pt-20 xl:pb-4">Tunggu apa lagi?</span>
                         <span class="block xl:pb-4">Temukan gurumu sekarang!</span>
                     </h1>
-                    <a href="/cari">
-                        <button class="bg-banana hover:bg-yellow-400 border-4 border-yellow-400 text-white text-lg sm:text-xl md:text-2xl font-body font-bold py-2 px-8 rounded-full focus:outline-none focus:border-banana">
-                            Cari Guru
-                        </button>
+                    <a href="/search" class="cursor-pointer bg-banana hover:bg-yellow-400 border-4 border-yellow-400 text-white text-lg sm:text-xl md:text-2xl font-body font-bold py-2 px-8 rounded-full focus:outline-none focus:border-banana">
+                        Cari Guru
                     </a>
                 </div>
             </main>
         </div>
     </div>
 </div>
+
 
 
 

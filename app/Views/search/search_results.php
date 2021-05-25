@@ -21,9 +21,9 @@
         <div class="flex flex-col my-16 px-20">
             <div class="bg-gray-300 border-2 border-gray-500 text-xs p-2">
                 <span>Urutkan Berdasarkan</span>
-                <span class="ml-5 py-0.5 px-1.5 rounded cursor-pointer bg-white">Rating <i class="fas fa-caret-down"></i></span>
+                <span class="ml-5 py-0.5 px-1.5 rounded cursor-pointer bg-white">Rating <i class="fa fa-caret-down"></i></span>
                 <span class="ml-1 py-0.5 px-1.5 rounded bg-white">
-                    <i class="fas fa-arrow-down"></i>
+                    <i class="fa fa-arrow-down"></i>
                 </span>
             </div>
             <div class="bg-pewter border-l-2 border-r-2 border-b-2 border-gray-500">

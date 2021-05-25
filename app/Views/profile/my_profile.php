@@ -155,9 +155,7 @@
                                     <label for="deskripsi-diri">Deskripsi Diri:</label>
                                 </td>
                                 <td class="pl-5 py-1">
-                                    <textarea id="deskripsi-diri" name="deskripsi_diri" rows="4" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 max-h-28 px-2">
-                                        At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
-                                    </textarea>
+                                    <textarea id="deskripsi-diri" name="deskripsi_diri" rows="4" class="whitespace-normal w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 max-h-28 px-2">ini harus satu baris</textarea>
                                 </td>
                             </tr>
                         </tbody>
