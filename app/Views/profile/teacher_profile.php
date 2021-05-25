@@ -31,10 +31,13 @@
                                         </span>
                                     </div>
                                     <h3 class="font-bold text-xl">Rp 75.000/jam</h3>
-                                    <div class="text-xs mt-3">
-                                        <span class="cursor-pointer bg-banana text-white font-semibold py-0.5 px-2 border-2 border-yellow-700 border-opacity-25 rounded-lg mr-3">
-                                            Buat reservasi khusus
-                                        </span>
+                                    <div class="flex flex-row text-xs mt-3">
+                                        <button class="modal-open cursor-pointer bg-banana text-white font-semibold py-0.5 px-2 border-2 border-yellow-700 border-opacity-25 focus:outline-none rounded-lg mr-3" data-toggle="modal" data-target="reservasiModal">
+                                            Reservasi khusus
+                                        </button>
+                                        <button class="modal-open cursor-pointer bg-darkBlue text-white font-semibold py-0.5 px-2 border-2 border-darkBlue border-opacity-25 focus:outline-none rounded-lg mr-3" data-toggle="modal" data-target="reportModal">
+                                            Chat sekarang
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -255,7 +258,7 @@
     </div>
 </div>
 
-<!-- Modal Belum Login -->
+<!-- Modal Laporan -->
 <div class="modal opacity-0 pointer-events-none fixed w-full h-full z-50 top-0 left-0 flex items-center justify-center overflow-y-auto" id="reportDoneModal">
     <div class="modal-overlay modal-close absolute w-full h-full bg-gray-900 opacity-75 bg-scroll"></div>
 
@@ -276,9 +279,131 @@
     </div>
 </div>
 
+<!-- Modal Reservasi -->
+<div class="modal opacity-0 pointer-events-none fixed w-full h-full z-50 top-0 left-0 flex items-center justify-center overflow-y-auto" id="reservasiModal">
+    <div class="modal-overlay modal-close absolute w-full h-full bg-gray-900 opacity-75 bg-scroll"></div>
+
+    <div class="modal-container bg-pewter w-full md:max-w-xs mx-auto md:mt-20 rounded-xl shadow-lg z-50">
+
+        <!-- Add margin if you want to see some of the overlay behind the modal-->
+        <div class="modal-content pt-4 text-center">
+            <!--Title-->
+            <div class="flex flex-col items-center pb-3">
+                <h3 class="text-2xl text-darkBlue font-semibold font-heading px-5">Pilih Hari Kursus</h3>
+                <div class="w-full flex flex-row mx-auto my-3">
+                    <div class="w-1/2 mx-4">
+                        <div class="flex items-center align-start mx-2">
+                            <input type="checkbox" name="senin" value="Senin" class="w-3 mx-2">
+                            <label for="senin"> Senin</label><br>
+                        </div>
+                        <div class="flex items-center align-start mx-2">
+                            <input type="checkbox" name="selasa" value="selasa" class="w-3 mx-2">
+                            <label for="selasa"> Selasa</label><br>
+                        </div>
+                        <div class="flex items-center align-start mx-2">
+                            <input type="checkbox" name="rabu" value="rabu" class="w-3 mx-2">
+                            <label for="rabu"> Rabu</label><br>
+                        </div>
+                        <div class="flex items-center align-start mx-2">
+                            <input type="checkbox" name="kamis" value="kamis" class="w-3 mx-2">
+                            <label for="kamis"> Kamis</label><br>
+                        </div>
+                    </div>
+                    <div class="w-1/2 mx-4">
+                        <div class="flex items-center align-start mx-2">
+                            <input type="checkbox" name="jumat" value="jumat" class="w-3 mx-2">
+                            <label for="jumat"> Jumat</label><br>
+                        </div>
+                        <div class="flex items-center align-start mx-2">
+                            <input type="checkbox" name="sabtu" value="sabtu" class="w-3 mx-2">
+                            <label for="sabtu"> Sabtu</label><br>
+                        </div>
+                        <div class="flex items-center align-start mx-2">
+                            <input type="checkbox" name="minggu" value="minggu" class="w-3 mx-2">
+                            <label for="minggu"> Minggu</label><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-row w-full">
+                <div class="w-1/2 py-2 text-center">
+                    <button type="submit" class="modal-open cursor-pointer w-9/12 text-sm text-center py-0.5 rounded-lg bg-darkBlue text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none" data-toggle="modal" data-target="konfirReservasiModal">
+                        Lanjut
+                    </button>
+                </div>
+                <div class="w-1/2 py-2">
+                    <button class="modal-close cursor-pointer w-9/12 text-sm text-center py-0.5 rounded-lg bg-blueGray text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none">
+                        Batal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
+<!-- Modal Konfirmasi Reservasi -->
+<div class="modal opacity-0 pointer-events-none fixed w-full h-full z-50 top-0 left-0 flex items-center justify-center overflow-y-auto" id="konfirReservasiModal">
+    <div class="modal-overlay modal-close absolute w-full h-full bg-gray-900 opacity-75 bg-scroll"></div>
+
+    <div class="modal-container bg-pewter w-full md:max-w-md mx-auto md:mt-20 rounded-xl shadow-lg z-50">
+
+        <!-- Add margin if you want to see some of the overlay behind the modal-->
+        <div class="modal-content pt-4 text-center">
+            <!--Title-->
+            <div class="flex flex-col items-center pb-3">
+                <h3 class="text-2xl text-darkBlue font-semibold font-heading px-5">Konfirmasi Reservasi</h3>
+            </div>
+
+            <!-- Content -->
+            <div class="px-5 text-sm my-5">
+                <table class="table-auto border-2 border-gray-600 border-opacity-50 mx-auto">
+                    <tr class="text-left">
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2 bg-blueGray bg-opacity-60">Pemesan</td>
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2">Nama Pengguna</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2 bg-blueGray bg-opacity-60">Nama Guru</td>
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2">John Doe</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2 bg-blueGray bg-opacity-60">Lokasi</td>
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2">DKI Jakarta</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2 bg-blueGray bg-opacity-60">Mata Pelajaran</td>
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2">Matematika</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2 bg-blueGray bg-opacity-60">Biaya</td>
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2">Rp 75.000,-</td>
+                    </tr>
+                    <tr class="text-left">
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2 bg-blueGray bg-opacity-60">Hari</td>
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2">Selasa, Kamis, Sabtu</td>
+                    </tr>
+                </table>
+                <div class="text-left text-xs px-8 my-2 text-red-600 italic">
+                    Diskusikan hari dan waktu lewat chat terlebih dahulu agar reservasi lebih berpeluang untuk diterima
+                </div>
+            </div>
+            <div class="flex flex-row w-full pb-5">
+                <div class="w-1/2 py-2 pl-8 text-center">
+                    <button type="submit" class="modal-open cursor-pointer w-7/12 text-xs text-center py-0.5 rounded-lg bg-darkBlue text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none" data-toggle="modal" data-target="konfirReservasiModal">
+                        Buat Reservasi
+                    </button>
+                </div>
+                <div class="w-1/2 py-2 pr-8">
+                    <button class="modal-close cursor-pointer w-7/12 text-xs text-center py-0.5 rounded-lg bg-blueGray text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none">
+                        Batal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     /*Toggle dropdown list*/
     function toggleDD(myDropMenu) {

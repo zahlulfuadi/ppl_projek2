@@ -247,7 +247,7 @@
                     <span class="modal-open cursor-pointer w-36 text-center py-0.5 rounded-xl bg-darkBlue text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none" data-toggle="modal" data-target="editSubjekModal">
                         Edit
                     </span>
-                    <span class="modal-close cursor-pointer w-36 text-center py-0.5 rounded-xl bg-blueGray text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue fous:outline-none">
+                    <span class="modal-close cursor-pointer w-36 text-center py-0.5 rounded-xl bg-blueGray text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none">
                         Kembali
                     </span>
                 </div>
@@ -333,7 +333,7 @@
                         <button type="submit" class="cursor-pointer w-36 text-center py-0.5 rounded-xl bg-darkBlue text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none">
                             Simpan
                         </button>
-                        <span class="modal-close cursor-pointer w-36 text-center py-0.5 rounded-xl bg-blueGray text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue fous:outline-none">
+                        <span class="modal-close cursor-pointer w-36 text-center py-0.5 rounded-xl bg-blueGray text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none">
                             Kembali
                         </span>
                     </div>
@@ -420,7 +420,7 @@
                         <button type="submit" class="cursor-pointer w-36 text-center py-0.5 rounded-xl bg-darkBlue text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none">
                             Simpan
                         </button>
-                        <span class="modal-close cursor-pointer w-36 text-center py-0.5 rounded-xl bg-blueGray text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue fous:outline-none">
+                        <span class="modal-close cursor-pointer w-36 text-center py-0.5 rounded-xl bg-blueGray text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none">
                             Kembali
                         </span>
                     </div>
