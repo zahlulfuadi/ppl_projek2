@@ -32,21 +32,26 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/sudahlogin', 'Home::index2');
 $routes->get('/search', 'Home::search');
-$routes->get('/login', 'Home::login');
-$routes->get('/login2', 'Home::login2');
-$routes->post('/login2', 'Home::login2');
+
+
 $routes->get('/register', 'Home::register');
+$routes->get('/chooseuser', 'Home::chooseUser');
+$routes->post('/login', 'Home::login');
+
+
 $routes->get('/myprofile', 'Home::myProfile');
-$routes->get('/editprofile', 'Home::editProfile');
 $routes->get('/profilguru', 'Home::profilGuru');
 $routes->post('/searchresults', 'Home::searchResult');
 
 $routes->get('/searchresults', 'Home::searchResult');
+
+// harusnya dihapus
+$routes->get('/sudahlogin', 'Home::index2');
+$routes->get('/editprofile', 'Home::editProfile');
 /*
- * --------------------------------------------------------------------
- * Additional Routing
+* --------------------------------------------------------------------
+* Additional Routing
  * --------------------------------------------------------------------
  *
  * There will often be times that you need additional routing and you

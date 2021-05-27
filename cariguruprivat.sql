@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Bulan Mei 2021 pada 17.41
+-- Waktu pembuatan: 27 Bulan Mei 2021 pada 03.11
 -- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.2.28
+-- Versi PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,20 +19,24 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cariguruprivat`
+-- Database: `ppl2`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `akses`
+-- Struktur dari tabel `akun`
 --
 
-CREATE TABLE `akses` (
-  `id_akses` int(5) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `id_menu` int(5) NOT NULL
+CREATE TABLE `akun` (
+  `id_akun` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `foto_profil` varchar(255) NOT NULL,
+  `role` int(11) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `date_created` timestamp NOT NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -42,12 +46,14 @@ CREATE TABLE `akses` (
 --
 
 CREATE TABLE `guru` (
-  `id_guru` int(5) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `alamat` varchar(100) NOT NULL,
-  `notelpon` varchar(20) NOT NULL,
-  `id_mapel` int(5) NOT NULL,
-  `id_akses` int(5) NOT NULL
+  `id_guru` int(11) NOT NULL,
+  `nama_guru` varchar(50) NOT NULL,
+  `lokasi_guru` varchar(255) NOT NULL,
+  `biaya_guru` int(11) NOT NULL,
+  `deskripsi_guru` varchar(255) NOT NULL,
+  `rating_guru` float NOT NULL,
+  `jml_ulasan` int(11) NOT NULL DEFAULT 0,
+  `id_akun` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -58,19 +64,9 @@ CREATE TABLE `guru` (
 
 CREATE TABLE `mapel` (
   `id_mapel` int(5) NOT NULL,
-  `nama_mapel` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `menu`
---
-
-CREATE TABLE `menu` (
-  `id_menu` int(5) NOT NULL,
-  `menu` varchar(50) NOT NULL,
-  `link` varchar(200) NOT NULL
+  `nama_mapel` varchar(50) NOT NULL,
+  `date_created` varchar(255) NOT NULL,
+  `date_updated` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -81,11 +77,85 @@ CREATE TABLE `menu` (
 
 CREATE TABLE `murid` (
   `id_murid` int(5) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `notelpon` varchar(20) NOT NULL,
-  `alamat` varchar(100) NOT NULL,
+  `nama_murid` varchar(50) NOT NULL,
+  `lokasi_murid` varchar(100) NOT NULL,
+  `jml_mapel_diikuti` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pembayaran`
+--
+
+CREATE TABLE `pembayaran` (
+  `id_pembayaran` int(11) NOT NULL,
+  `id_reservasi` int(11) NOT NULL,
+  `sudah_dibayar` varchar(50) NOT NULL,
+  `date_created` varchar(255) NOT NULL,
+  `date_updated` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `report`
+--
+
+CREATE TABLE `report` (
+  `id_report` int(11) NOT NULL,
+  `alasan` enum('membuat kesal','spam','tidak menyelesaikan transaksi','mengirim sesuatu menyinggung','akun palsu','lainnya') NOT NULL,
+  `detail` varchar(255) NOT NULL,
+  `id_murid` int(11) NOT NULL,
+  `id_guru` int(11) NOT NULL,
+  `date_created` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `reservasi`
+--
+
+CREATE TABLE `reservasi` (
+  `id_reservasi` int(11) NOT NULL,
+  `status_konfirmasi` tinyint(1) NOT NULL,
+  `hari_konfirmasi` varchar(255) NOT NULL,
+  `id_guru` int(11) NOT NULL,
+  `id_murid` int(11) NOT NULL,
+  `id_mapel` int(11) NOT NULL,
+  `date_created` varchar(255) NOT NULL,
+  `date_updated` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `review`
+--
+
+CREATE TABLE `review` (
+  `id_ulasan` int(5) NOT NULL,
   `id_guru` int(5) NOT NULL,
-  `id_akses` int(5) NOT NULL
+  `id_murid` int(5) NOT NULL,
+  `ulasan` varchar(200) NOT NULL,
+  `skor_rating` int(2) NOT NULL,
+  `date_created` varchar(255) NOT NULL,
+  `date_updated` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `subjek`
+--
+
+CREATE TABLE `subjek` (
+  `id_subjek` int(5) NOT NULL,
+  `nama_subjek` varchar(50) NOT NULL,
+  `id_mapel` int(5) NOT NULL,
+  `date_created` varchar(255) NOT NULL,
+  `date_updated` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -93,11 +163,11 @@ CREATE TABLE `murid` (
 --
 
 --
--- Indeks untuk tabel `akses`
+-- Indeks untuk tabel `akun`
 --
-ALTER TABLE `akses`
-  ADD PRIMARY KEY (`id_akses`),
-  ADD UNIQUE KEY `username` (`username`);
+ALTER TABLE `akun`
+  ADD PRIMARY KEY (`id_akun`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indeks untuk tabel `guru`
@@ -112,16 +182,97 @@ ALTER TABLE `mapel`
   ADD PRIMARY KEY (`id_mapel`);
 
 --
--- Indeks untuk tabel `menu`
---
-ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id_menu`);
-
---
 -- Indeks untuk tabel `murid`
 --
 ALTER TABLE `murid`
   ADD PRIMARY KEY (`id_murid`);
+
+--
+-- Indeks untuk tabel `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  ADD PRIMARY KEY (`id_pembayaran`);
+
+--
+-- Indeks untuk tabel `report`
+--
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`id_report`),
+  ADD UNIQUE KEY `id_murid` (`id_murid`),
+  ADD UNIQUE KEY `id_guru` (`id_guru`);
+
+--
+-- Indeks untuk tabel `reservasi`
+--
+ALTER TABLE `reservasi`
+  ADD PRIMARY KEY (`id_reservasi`);
+
+--
+-- Indeks untuk tabel `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`id_ulasan`),
+  ADD UNIQUE KEY `id_guru` (`id_guru`),
+  ADD UNIQUE KEY `id_murid` (`id_murid`);
+
+--
+-- Indeks untuk tabel `subjek`
+--
+ALTER TABLE `subjek`
+  ADD PRIMARY KEY (`id_subjek`),
+  ADD UNIQUE KEY `id_mapel` (`id_mapel`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `akun`
+--
+ALTER TABLE `akun`
+  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `guru`
+--
+ALTER TABLE `guru`
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `murid`
+--
+ALTER TABLE `murid`
+  MODIFY `id_murid` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `report`
+--
+ALTER TABLE `report`
+  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `reservasi`
+--
+ALTER TABLE `reservasi`
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `review`
+--
+ALTER TABLE `review`
+  MODIFY `id_ulasan` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `subjek`
+--
+ALTER TABLE `subjek`
+  MODIFY `id_subjek` int(5) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
