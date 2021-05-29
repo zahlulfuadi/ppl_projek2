@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title; ?> - CariGuruPrivat</title>
+    <title> - CariGuruPrivat</title>
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 
@@ -30,43 +30,49 @@
                 <div class="bg-pewter px-6 py-4 my-8 rounded-xl shadow-md text-black w-full">
                     <h1 class="text-3xl text-center">Selamat Datang di</h1>
                     <h1 class="mb-4 text-3xl tracking-tight text-center font-black font-logo">CariGuruPrivat</h1>
+
+                    <!-- pesan error -->
+                    <?= view('Myth\Auth\Views\_message_block') ?>
+
                     <div class="mx-12">
-                        <form action="/login" method="post">
+                        <form action="<?= route_to('register') ?>" method="post">
+                            <?= csrf_field() ?>
+
                             <div>
                                 <label class="block text-gray-700 text-sm font-bold" for="nama_lengkap">
                                     Nama Lengkap
                                 </label>
-                                <input id=" nama_lengkap" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="fullname" placeholder="" required>
+                                <input id=" nama_lengkap" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="fullname" placeholder="<?= lang('Auth.fullname') ?>" value="<?= old('fullname') ?>" required>
                             </div>
                             <div>
-                                <label class="block text-gray-700 text-sm font-bold" for="email">
+                                <label class=" block text-gray-700 text-sm font-bold" for="email">
                                     Email
                                 </label>
-                                <input id="email" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700 w-full p-1.5 rounded-2xl mb-2" name="email" placeholder="" required>
+                                <input id="email" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700 w-full p-1.5 rounded-2xl mb-2 <?php if (session('errors.email')) : ?>border-red-500<?php endif ?>" name="email" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>" required>
                             </div>
                             <div>
                                 <label class="block text-gray-700 text-sm font-bold" for="nama_lengkap">
                                     Lokasi
                                 </label>
-                                <input id="nama_lengkap" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="fullname" placeholder="" required>
+                                <input id="nama_lengkap" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="location" placeholder="<?= lang('Auth.location') ?>" value="<?= old('location') ?>" required>
                             </div>
                             <div>
                                 <label class="block text-gray-700 text-sm font-bold" for="password">
                                     Password
                                 </label>
-                                <input id="password" type="password" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="password" placeholder="" required>
+                                <input id="password" type="password" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2 <?php if (session('errors.email')) : ?>border-red-500<?php endif ?>" name="password" placeholder="<?= lang('Auth.password') ?>" autocomplete="off" required>
                             </div>
                             <div>
                                 <label class="block text-gray-700 text-sm font-bold" for="confirm_password">
                                     Konfirmasi Password
                                 </label>
-                                <input id="confirm_password" type="password" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="confirm_password" placeholder="" required>
+                                <input id="confirm_password" type="password" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2 <?php if (session('errors.email')) : ?>border-red-500<?php endif ?>" name="pass_confirm" placeholder="<?= lang('Auth.repeatPassword') ?>" autocomplete="off" required>
                             </div>
                             <div class="">
                                 <span class="text-gray-700 text-sm font-bold">Daftar sebagai...</span>
                                 <div class="flex justify-center">
                                     <label class="inline-flex items-center">
-                                        <input type="radio" class="form-radio h-5 w-5 text-gray-600" name="accountType" value="personal">
+                                        <input type="radio" class="form-radio h-5 w-5 text-gray-600" name="accountType" value="personal" required>
                                         <span class="ml-2">Guru</span>
                                     </label>
                                     <label class="inline-flex items-center ml-6">
@@ -76,13 +82,15 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="w-auto px-10 text-center py-2 rounded-full bg-darkBlue text-white hover:bg-blueGray focus:outline-none mt-8">Daftar</button>
+                                <button type="submit" class="w-auto px-10 text-center py-2 rounded-full bg-darkBlue text-white hover:bg-blueGray focus:outline-none mt-8"><?= lang('Auth.register') ?></button>
                             </div>
                         </form>
+
                         <div class="text-center text-sm text-grey-dark mt-4">
-                            Sudah punya akun ?
-                            <a class="no-underline border-b border-grey-dark text-blue-600" href="/login">
-                                Login
+                            <!-- Sudah punya akun ? -->
+                            <?= lang('Auth.alreadyRegistered') ?>
+                            <a href="<?= route_to('chooseuser') ?>" class="no-underline border-b border-grey-dark text-blue-600">
+                                <?= lang('Auth.signIn') ?>
                             </a>
                         </div>
                     </div>

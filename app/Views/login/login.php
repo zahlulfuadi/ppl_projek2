@@ -46,31 +46,54 @@
                     <h1 class="mt-4 text-3xl text-center">Selamat Datang kembali di</h1>
                     <h1 class="mb-6 text-3xl text-center font-bold">CariGuruPrivat!</h1>
                     <div class="mx-8">
-                        <form action="/loginverify" method="post">
-                            <input type="hidden" name="role" value="<?= $_POST["role"]; ?>">
+
+                        <!-- pesan error -->
+                        <?= view('Myth\Auth\Views\_message_block') ?>
+
+                        <form action="<?= route_to('login') ?>" method="post">
+                            <?= csrf_field() ?>
+
+                            <input type="hidden" name="role" value="<?= $_GET["role"]; ?>">
                             <div class="mb-6">
                                 <label class="block text-gray-700 text-sm font-bold" for="email">
                                     Email
                                 </label>
-                                <input id="email" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700 w-full p-1.5 rounded-2xl mb-2" name="email" placeholder="" required>
+                                <input id="email" type="email" class="block border-4 border-gray-300 outline-none focus:border-gray-700 w-full p-1.5 rounded-2xl mb-2 <?php if (session('errors.login')) : ?>border-red-500<?php endif ?>" name="login" placeholder="<?= lang('Auth.email') ?>" required>
+
+                                <!-- pesan error -->
+                                <?= session('errors.login') ?>
                             </div>
                             <div>
                                 <label class="block text-gray-700 text-sm font-bold" for="password">
                                     Password
                                 </label>
-                                <input id="password" type="password" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="password" placeholder="" required>
+                                <input id="password" type="password" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2 <?php if (session('errors.password')) : ?>border-red-500<?php endif ?>" name="password" placeholder="<?= lang('Auth.password') ?>" required>
+
+                                <!-- pesan error -->
+                                <?= session('errors.password') ?>
                             </div>
+
+                            <?php if ($config->allowRemembering) : ?>
+                                <div class="text-gray-700 text-sm font-bold">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" name="remember" class="form-check-input" <?php if (old('remember')) : ?> checked <?php endif ?>>
+                                        <?= lang('Auth.rememberMe') ?>
+                                    </label>
+                                </div>
+                            <?php endif; ?>
+
                             <div class="text-center">
                                 <button type="submit" class="w-auto px-10 text-center py-2 rounded-full bg-blueGray text-white hover:bg-darkBlue focus:outline-none mt-8">Login</button>
                             </div>
                         </form>
 
-                        <div class="text-center text-sm text-grey-dark mt-20">
-                            Belum punya akun ?
-                            <a class="no-underline border-b border-grey-dark text-blue-600" href="/register">
-                                Daftar
-                            </a>
-                        </div>
+                        <?php if ($config->allowRegistration) : ?>
+                            <div class="text-center text-sm text-grey-dark mt-20">
+                                <a href="<?= route_to('register') ?>" class="no-underline border-b border-grey-dark text-blue-600">
+                                    <?= lang('Auth.needAnAccount') ?>
+                                </a>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

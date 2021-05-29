@@ -2,24 +2,19 @@
 
 namespace App\Controllers;
 
+use \Codeigniter\Controller;
+use App\Models\Users_Model;
+// use Myth\Auth\Controllers;
+
 class Home extends BaseController
 {
-
-	// function __construct(){
-	// 	parent::__construct();
-	// 	if($this->session->userdata('masuk') !=TRUE){
-	//         $url=base_url();
-	//         redirect($url);
-	//     };
-	// }
-
 
 	public function index()
 	{
 		// return view('welcome_message');
 		return view('landing_page/landing_page');
 	}
-	public function index2()
+	public function dashboard()
 	{
 		// return view('welcome_message');
 		return view('landing_page/landing_page_after_login');

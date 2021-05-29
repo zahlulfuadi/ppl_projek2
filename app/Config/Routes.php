@@ -35,13 +35,13 @@ $routes->get('/', 'Home::index');
 $routes->get('/search', 'Home::search');
 
 // ganti classnya jangan lupa
-$routes->get('/register', 'Administration::register');
-$routes->post('/register', 'Login::registerVerify');
-$routes->get('/chooseuser', 'Home::chooseUser');
-$routes->get('/login', 'Home::chooseUser');
-$routes->post('/login', 'Home::login');
-$routes->post('/loginverify', 'Login::verify');
-$routes->post('/logout', 'Login::logout');
+// $routes->get('/register', 'Administration::register');
+// $routes->post('/register', 'Login::registerVerify');
+// $routes->get('/chooseuser', 'Home::chooseUser');
+// $routes->get('/login', 'Home::chooseUser');
+// $routes->post('/login', 'Home::login');
+// $routes->post('/loginverify', 'Login::verify');
+// $routes->post('/logout', 'Login::logout');
 
 
 $routes->get('/myprofile', 'Home::myProfile');
@@ -49,6 +49,34 @@ $routes->get('/profilguru', 'Home::profilGuru');
 $routes->post('/searchresults', 'Home::searchResult');
 
 $routes->get('/searchresults', 'Home::searchResult');
+
+// Myth
+$routes->group('', ['filter' => 'login'], function ($routes) {
+	$routes->get('dashboard', 'Home::dashboard');
+});
+
+$routes->group('', ['namespace' => 'Myth\Auth\Controllers'], function ($routes) {
+	// Login/out
+	$routes->get('chooseuser', 'AuthController::chooseUser');
+	$routes->get('login', 'AuthController::login', ['as' => 'login']);
+	$routes->post('login', 'AuthController::attemptLogin');
+	$routes->get('logout', 'AuthController::logout');
+
+	// Registration
+	$routes->get('register', 'AuthController::register', ['as' => 'register']);
+	$routes->post('register', 'AuthController::attemptRegister');
+
+	// Activation
+	$routes->get('activate-account', 'AuthController::activateAccount', ['as' => 'activate-account']);
+	$routes->get('resend-activate-account', 'AuthController::resendActivateAccount', ['as' => 'resend-activate-account']);
+
+	// Forgot/Resets
+	$routes->get('forgot', 'AuthController::forgotPassword', ['as' => 'forgot']);
+	$routes->post('forgot', 'AuthController::attemptForgot');
+	$routes->get('reset-password', 'AuthController::resetPassword', ['as' => 'reset-password']);
+	$routes->post('reset-password', 'AuthController::attemptReset');
+});
+
 
 // harusnya dihapus
 $routes->get('/sudahlogin', 'Home::index2');

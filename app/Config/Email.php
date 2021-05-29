@@ -6,15 +6,16 @@ use CodeIgniter\Config\BaseConfig;
 
 class Email extends BaseConfig
 {
-	/**
-	 * @var string
-	 */
-	public $fromEmail;
 
 	/**
 	 * @var string
 	 */
-	public $fromName;
+	public $fromEmail = "saefulmujab.nf@gmail.com"; //tambahkan ini
+
+	/**
+	 * @var string
+	 */
+	public $fromName = "PokPhone.com"; //tambahkan ini
 
 	/**
 	 * @var string
@@ -167,5 +168,4 @@ class Email extends BaseConfig
 	 * @var boolean
 	 */
 	public $DSN = false;
-
 }

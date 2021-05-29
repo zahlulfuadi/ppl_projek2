@@ -10,7 +10,7 @@ class Administration extends BaseController
     {
         // parent::__construct(); // ini harus pake controller CIController
         $this->model = new Users_Model();
-        // $this->load->model('Users_Modal');
+        // $this->load->model('Users_Model');
     }
 
     public function register()

@@ -39,7 +39,7 @@
 
                         <span>Login sebagai..</span>
                         <div class="grid grid-cols-2 gap-3 place-items-center mt-2 mb-24">
-                            <form action="/login" method="post">
+                            <form action="/login" method="get">
                                 <div class="bg-white cursor-pointer hover:bg-blueGray hover:border-darkBlue border-2 border-gray-300 py-2 mx-2 rounded-xl text-center">
                                     <input type="hidden" name="role" id="role_guru" value="guru">
                                     <button type="submit" class="focus:outline-none">
@@ -48,7 +48,7 @@
                                     </button>
                                 </div>
                             </form>
-                            <form action="/login" method="post">
+                            <form action="/login" method="get">
                                 <div class="bg-white cursor-pointer hover:bg-blueGray hover:border-darkBlue border-2 border-gray-300 py-2 mx-2 rounded-xl text-center">
                                     <input type="hidden" name="role" id="role_murid" value="murid">
                                     <button type="submit" class="focus:outline-none">
