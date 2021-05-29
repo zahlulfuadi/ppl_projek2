@@ -2,19 +2,38 @@
 
 namespace App\Controllers;
 
-use App\Models\UsersModel;
+use App\Models\Users_Model;
 
-class Home extends BaseController
+class Administration extends BaseController
 {
     public function __construct()
     {
-        $this->model = new UsersModel();
+        // parent::__construct(); // ini harus pake controller CIController
+        $this->model = new Users_Model();
+        // $this->load->model('Users_Modal');
     }
 
-    public function index()
+    public function register()
+    {
+        if (session('username'))
+            return redirect()->to("/Home");
+        $data['title'] = "Register";
+        $data['info'] = "";
+        if (session('register')) {
+            $data['info'] = "<script>alert('Pendaftaran Berhasil')</script>";
+            session()->remove('register');
+        }
+        if (session('error'))
+            $data['note'] = session('error');
+
+        return view('login/register', $data);
+        //         $this->load->view('admin/v_login',$x);
+    }
+
+    public function chooseUser()
     {
         if (session('username')) return redirect()->to("/Home");
-        $data['info'] = "";
+        $data['title'] = "Login";
         $data['note'] = "";
         if (session('register')) {
             $data['info'] = "<script>alert('Pendaftaran Berhasil')</script>";
@@ -22,6 +41,21 @@ class Home extends BaseController
         }
         if (session('error')) $data['note'] = session('error');
         return view('login.php', $data);
+        //         $this->load->view('admin/v_login',$x);
+    }
+
+    public function index2()
+    {
+        if (session('username')) return redirect()->to("/Home");
+        $data['title'] = "Login";
+        $data['note'] = "";
+        if (session('register')) {
+            $data['info'] = "<script>alert('Pendaftaran Berhasil')</script>";
+            session()->remove('register');
+        }
+        if (session('error')) $data['note'] = session('error');
+        return view('login.php', $data);
+        //         $this->load->view('admin/v_login',$x);
     }
 
     public function verify()

@@ -35,7 +35,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/search', 'Home::search');
 
 // ganti classnya jangan lupa
-$routes->get('/register', 'Home::register');
+$routes->get('/register', 'Administration::register');
 $routes->post('/register', 'Login::registerVerify');
 $routes->get('/chooseuser', 'Home::chooseUser');
 $routes->get('/login', 'Home::chooseUser');
