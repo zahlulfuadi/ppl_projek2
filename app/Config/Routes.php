@@ -34,10 +34,14 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/search', 'Home::search');
 
-
+// ganti classnya jangan lupa
 $routes->get('/register', 'Home::register');
+$routes->post('/register', 'Login::registerVerify');
 $routes->get('/chooseuser', 'Home::chooseUser');
+$routes->get('/login', 'Home::chooseUser');
 $routes->post('/login', 'Home::login');
+$routes->post('/loginverify', 'Login::verify');
+$routes->post('/logout', 'Login::logout');
 
 
 $routes->get('/myprofile', 'Home::myProfile');

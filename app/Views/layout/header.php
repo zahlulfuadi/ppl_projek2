@@ -87,7 +87,7 @@
                     <a href="/myprofile" class="block md:hidden px-4 py-1 my-1 text-sm font-semibold bg-transparent md:mt-0 md:ml-4 focus:outline-none w-full border-t-2 border-opacity-50 border-gray-600 text-gray-700 hover:text-black">Edit Profil</a>
                     <a href="/chat" class="block md:hidden px-4 py-1 my-1 text-sm font-semibold bg-transparent md:mt-0 md:ml-4 focus:outline-none w-full border-t-2 border-opacity-50 border-gray-600 text-gray-700 hover:text-black">Chat</a>
                     <a href="/reservasi" class="block md:hidden px-4 py-1 my-1 text-sm font-semibold bg-transparent md:mt-0 md:ml-4 focus:outline-none w-full border-t-2 border-opacity-50 border-gray-600 text-gray-700 hover:text-black">Reservasi</a>
-                    <a href="/chooseuser" class="block md:hidden px-4 py-1 my-1 pb-2 mb-2 text-sm font-semibold bg-transparent md:mt-0 md:ml-4 focus:outline-none w-full border-t-2 border-b-2 border-opacity-50 border-gray-600 text-gray-700 hover:text-black">Logout</a>
+                    <a href="/logout" class="block md:hidden px-4 py-1 my-1 pb-2 mb-2 text-sm font-semibold bg-transparent md:mt-0 md:ml-4 focus:outline-none w-full border-t-2 border-b-2 border-opacity-50 border-gray-600 text-gray-700 hover:text-black">Logout</a>
                 </div>
                 <!-- </div> -->
                 <!-- <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Blog</a> -->

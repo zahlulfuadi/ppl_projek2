@@ -4,6 +4,16 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
+
+	// function __construct(){
+	// 	parent::__construct();
+	// 	if($this->session->userdata('masuk') !=TRUE){
+	//         $url=base_url();
+	//         redirect($url);
+	//     };
+	// }
+
+
 	public function index()
 	{
 		// return view('welcome_message');

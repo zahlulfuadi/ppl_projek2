@@ -46,7 +46,7 @@
                     <h1 class="mt-4 text-3xl text-center">Selamat Datang kembali di</h1>
                     <h1 class="mb-6 text-3xl text-center font-bold">CariGuruPrivat!</h1>
                     <div class="mx-8">
-                        <form action="/login" method="post">
+                        <form action="/loginverify" method="post">
                             <input type="hidden" name="role" value="<?= $_POST["role"]; ?>">
                             <div class="mb-6">
                                 <label class="block text-gray-700 text-sm font-bold" for="email">
@@ -60,7 +60,6 @@
                                 </label>
                                 <input id="password" type="password" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="password" placeholder="" required>
                             </div>
-
                             <div class="text-center">
                                 <button type="submit" class="w-auto px-10 text-center py-2 rounded-full bg-blueGray text-white hover:bg-darkBlue focus:outline-none mt-8">Login</button>
                             </div>
