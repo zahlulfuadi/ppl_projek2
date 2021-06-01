@@ -11,33 +11,33 @@ class Home extends BaseController
 
 	public function index()
 	{
-		// return view('welcome_message');
-		return view('landing_page/landing_page');
+		$data['title'] = 'Home';
+		return view('landing_page/landing_page', $data);
 	}
 	public function dashboard()
 	{
-		// return view('welcome_message');
-		return view('landing_page/landing_page_after_login');
+		$data['title'] = 'Dashboard';
+		return view('landing_page/landing_page_after_login', $data);
 	}
 	public function search()
 	{
-		// return view('welcome_message');
-		return view('search/search');
+		$data['title'] = 'Search';
+		return view('search/search', $data);
 	}
 	public function register()
 	{
-		// return view('welcome_message');
-		return view('login/register');
+		$data['title'] = 'Register';
+		return view('login/register', $data);
 	}
 	public function chooseUser()
 	{
-		// return view('welcome_message');
-		return view('login/choose_user');
+		$data['title'] = 'Login';
+		return view('login/choose_user', $data);
 	}
 	public function login()
 	{
-		// return view('welcome_message');
-		return view('login/login');
+		$data['title'] = 'Login';
+		return view('login/login', $data);
 	}
 	public function profilGuru()
 	{

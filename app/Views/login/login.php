@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Register Template</title>
+    <title>Login - CariGuruPrivat</title>
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 
-
+    <!-- tailwind -->
     <link rel="stylesheet" href="/css/tailwind.css">
 
     <!-- icon -->
