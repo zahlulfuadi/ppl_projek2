@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Controllers\Profile;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -44,22 +46,24 @@ $routes->get('/search', 'Home::search');
 // $routes->post('/logout', 'Login::logout');
 
 
-$routes->get('/myprofile', 'Home::myProfile');
-$routes->get('/profilguru', 'Home::profilGuru');
-$routes->post('/searchresults', 'Home::searchResult');
-
 $routes->get('/searchresults', 'Home::searchResult');
 
 // Myth
 $routes->group('', ['filter' => 'login'], function ($routes) {
 	$routes->get('dashboard', 'Home::dashboard');
+
+	// Profile
+	$routes->get('/myprofile', 'Profile::index');
+	$routes->get('/profilguru', 'Home::profilGuru');
+	$routes->post('/searchresults', 'Home::searchResult');
+	// Akhir Profile
 });
 
 $routes->group('', ['namespace' => 'Myth\Auth\Controllers'], function ($routes) {
 	// Login/out
-	$routes->get('chooseuser', 'AuthController::chooseUser');
-	$routes->get('login', 'AuthController::login', ['as' => 'login']);
-	$routes->post('login', 'AuthController::attemptLogin');
+	$routes->get('choose-user', 'AuthController::chooseUser');
+	$routes->post('login', 'AuthController::login', ['as' => 'login']);
+	$routes->post('attempt-login', 'AuthController::attemptLogin');
 	$routes->get('logout', 'AuthController::logout');
 
 	// Registration

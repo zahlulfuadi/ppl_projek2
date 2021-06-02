@@ -378,7 +378,7 @@
                     </tr>
                     <tr class="text-left">
                         <td class="border-2 border-gray-600 border-opacity-50 px-2 bg-blueGray bg-opacity-60">Biaya</td>
-                        <td class="border-2 border-gray-600 border-opacity-50 px-2">Rp 75.000,-</td>
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2">Rp <?= number_format($angka, 2, ',', '.'); ?></td>
                     </tr>
                     <tr class="text-left">
                         <td class="border-2 border-gray-600 border-opacity-50 px-2 bg-blueGray bg-opacity-60">Hari</td>

@@ -42,7 +42,7 @@
                                 <label class="block text-gray-700 text-sm font-bold" for="nama_lengkap">
                                     Nama Lengkap
                                 </label>
-                                <input id=" nama_lengkap" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2" name="fullname" placeholder="<?= lang('Auth.fullname') ?>" value="<?= old('fullname') ?>" required>
+                                <input id=" nama_lengkap" type="text" class="block border-4 border-gray-300 outline-none focus:border-gray-700  w-full p-1.5 rounded-2xl mb-2 <?php if (session('errors.fullname')) : ?>border-red-500<?php endif ?>" name="fullname" placeholder="<?= lang('Auth.fullname') ?>" value="<?= old('fullname') ?>" required>
                             </div>
                             <div>
                                 <label class=" block text-gray-700 text-sm font-bold" for="email">
@@ -72,11 +72,11 @@
                                 <span class="text-gray-700 text-sm font-bold">Daftar sebagai...</span>
                                 <div class="flex justify-center">
                                     <label class="inline-flex items-center">
-                                        <input type="radio" class="form-radio h-5 w-5 text-gray-600" name="accountType" value="personal" required>
+                                        <input type="radio" class="form-radio h-5 w-5 text-gray-600" name="role" value="guru" <?= (old('role') == 'guru') ? "checked" : ""; ?> required>
                                         <span class="ml-2">Guru</span>
                                     </label>
                                     <label class="inline-flex items-center ml-6">
-                                        <input type="radio" class="form-radio h-5 w-5 text-gray-600" name="accountType" value="busines">
+                                        <input type="radio" class="form-radio h-5 w-5 text-gray-600" name="role" value="murid" <?= (old('role') == 'murid') ? "checked" : ""; ?>>
                                         <span class="ml-2">Murid</span>
                                     </label>
                                 </div>
@@ -89,7 +89,7 @@
                         <div class="text-center text-sm text-grey-dark mt-4">
                             <!-- Sudah punya akun ? -->
                             <?= lang('Auth.alreadyRegistered') ?>
-                            <a href="<?= route_to('chooseuser') ?>" class="no-underline border-b border-grey-dark text-blue-600">
+                            <a href="<?= route_to('choose-user') ?>" class="no-underline border-b border-grey-dark text-blue-600">
                                 <?= lang('Auth.signIn') ?>
                             </a>
                         </div>

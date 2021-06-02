@@ -50,10 +50,10 @@
                         <!-- pesan error -->
                         <?= view('Myth\Auth\Views\_message_block') ?>
 
-                        <form action="<?= route_to('login') ?>" method="post">
+                        <form action="<?= route_to('attempt-login') ?>" method="post">
                             <?= csrf_field() ?>
 
-                            <input type="hidden" name="role" value="<?= $_GET["role"]; ?>">
+                            <input type="hidden" name="role" value="<?= $_POST["role"]; ?>">
                             <div class="mb-6">
                                 <label class="block text-gray-700 text-sm font-bold" for="email">
                                     Email

@@ -12,16 +12,17 @@
             <div class="flex flex-wrap pt-8 px-20 min-h-screen-3/4">
                 <div class="w-full md:w-3/12 p-4 py-2">
                     <!--Metric Card-->
+
                     <div class="bg-pewter border border-gray-600 rounded-lg shadow-xl p-5 h-full">
                         <div class="flex flex-col items-center">
                             <div class="px-auto">
                                 <img src="http://gokubi.com/wp-content/uploads/2013/10/Steve-Andersen-Headshot-square1.jpeg" class="w-36 rounded-full p-2" alt="foto profil">
                             </div>
                             <div class="flex flex-col text-center">
-                                <h5 class="font-bold font-heading text-3xl uppercase text-gray-600">John Doe</h5>
+                                <h5 class="font-bold font-heading text-3xl uppercase text-gray-600"><?= $profile['fullname']; ?></h5>
                                 <span class="text-xs text-blue-700 font-base px-2 my-3">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    DKI Jakarta
+                                    <?= $profile['lokasi']; ?>
                                 </span>
                                 <button type="submit" class="modal-open w-auto cursor-pointer px-4 text-center py-1.5 rounded-xl bg-darkBlue text-white border-2 border-gray-400 hover:bg-white hover:border-darkBlue hover:text-darkBlue focus:outline-none mb-8" data-toggle="modal" data-target="editProfilModal">
                                     Edit Profil
@@ -30,21 +31,11 @@
                                     <span class="text-left block leading-none text-sm font-semibold"> Bidang studi yang diajarkan: </span>
                                     <span class="text-left block text-xs italic"> (klik untuk lihat detail) </span>
                                     <div class="flex flex-row flex-wrap justify-around gap-y-1 py-2">
-                                        <span class="modal-open bg-white cursor-pointer text-gray-700 font-semibold text-xs px-4 py-0.5 border border-gray-600 rounded-md" data-toggle="modal" data-target="detailSubjekModal">
-                                            Aljabar
-                                        </span>
-                                        <span class="modal-open bg-white cursor-pointer text-gray-700 font-semibold text-xs px-4 py-0.5 border border-gray-600 rounded-md" data-toggle="modal" data-target="detailSubjekModal">
-                                            SPLDV
-                                        </span>
-                                        <span class="modal-open bg-white cursor-pointer text-gray-700 font-semibold text-xs px-4 py-0.5 border border-gray-600 rounded-md" data-toggle="modal" data-target="detailSubjekModal">
-                                            Geometri
-                                        </span>
-                                        <span class="modal-open bg-white cursor-pointer text-gray-700 font-semibold text-xs px-4 py-0.5 border border-gray-600 rounded-md" data-toggle="modal" data-target="detailSubjekModal">
-                                            Kalkulus
-                                        </span>
-                                        <span class="modal-open bg-white cursor-pointer text-gray-700 font-semibold text-xs px-4 py-0.5 border border-gray-600 rounded-md" data-toggle="modal" data-target="detailSubjekModal">
-                                            Aljabar
-                                        </span>
+                                        <?php foreach ($daftar_subjek as $subjek) : ?>
+                                            <span class="modal-open bg-white cursor-pointer text-gray-700 font-semibold text-xs px-4 py-0.5 border border-gray-600 rounded-md" data-toggle="modal" data-target="detailSubjekModal">
+                                                <?= $subjek['nama']; ?>
+                                            </span>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                                 <div class="text-xs mt-3">
@@ -63,17 +54,16 @@
                         <h5 class="font-bold font-heading text-3xl text-gray-600">Tentang Anda</h5>
                         <div class="text-justify mt-2 space-y-3">
                             <p>
+                                <?= $profile['deskripsi']; ?>
+                            </p>
+                            <!-- <p>
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
                                 Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
                             </p>
                             <p>
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
                                 Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
-                            </p>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
-                                Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
-                            </p>
+                            </p> -->
                         </div>
                     </div>
                     <!--/Metric Card-->
