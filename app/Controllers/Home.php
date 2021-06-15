@@ -24,39 +24,34 @@ class Home extends BaseController
 		$data['title'] = 'Search';
 		return view('search/search', $data);
 	}
-	public function register()
-	{
-		$data['title'] = 'Register';
-		return view('login/register', $data);
-	}
-	public function chooseUser()
-	{
-		$data['title'] = 'Login';
-		return view('login/choose_user', $data);
-	}
-	public function login()
-	{
-		$data['title'] = 'Login';
-		return view('login/login', $data);
-	}
 	public function profilGuru()
 	{
-		// return view('welcome_message');
-		return view('profile/teacher_profile');
-	}
-	public function myProfile()
-	{
-		// return view('welcome_message');
-		return view('profile/my_profile');
-	}
-	public function editProfile()
-	{
-		// return view('welcome_message');
-		return view('profile/edit_profile');
+		$data['title'] = 'Profil Guru';
+		return view('profile/teacher_profile', $data);
 	}
 	public function searchResult()
 	{
-		// return view('welcome_message');
-		return view('search/search_results');
+		$pager = \Config\Services::pager();
+		$model = new Users_Model();
+		$key = $this->request->getVar('key');
+		$lokasi = $this->request->getVar('lokasi');
+
+		if ($key) {
+			$query = $model->search($key, $lokasi);
+			// $jumlah = "Pencarian dengan kata kunci <B>$key</B> ditemukan " . $query->affectedRows() . " Data";
+			$jumlah = "";
+		} else {
+			$query = $model;
+			$jumlah = "";
+		}
+
+		$data['title'] = "Hasil Pencarian";
+		$data['guru'] = $query;
+		// $data['guru'] = $query->paginate(10);
+		// $data['pager'] = $model->pager;
+		// $data['page'] = $this->request->getVar('page') ? $this->request->getVar('page') : 1;
+		$data['jumlah'] = $jumlah;
+		// dd($data);
+		return view('search/search_results', $data);
 	}
 }

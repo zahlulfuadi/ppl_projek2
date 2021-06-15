@@ -94,16 +94,12 @@
                         <h5 class="font-bold font-heading text-3xl text-gray-600">Tentang John Doe</h5>
                         <div class="text-justify mt-2 space-y-3">
                             <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
-                                Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
-                            </p>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
-                                Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
-                            </p>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
-                                Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
+                                John Doe atau biasa dipanggil John. Saya kuliah S1 di Universitas Indonesia atau biasa dikenal UI, berlokasi di Depok, Jawab Barat.
+                                Saya kuliah jurusan pendidikan matematika dan kuliah S2 di Universitas Negeri Jakarta (UNJ) jurusan pendidikan matematika.
+                                Saya mulai mengajar sejak tahun 2015 sampai sekarang. Saya berpengalaman mengajar jenjang SD, SMP, dan SMA.
+                                Saya memiliki berbagai macam pengalaman mengajar seperti di sekolah, tempat kursus, bimbel dan asisten dosen.
+                                Siswa saya memperoleh berbagai macam prestasi seperti nilai ujian yang memuaskan, juara kelas, memenangkan lomba akademik dan olimpiade
+                                serta diterima kuliah di universitas negeri ternama.
                             </p>
                         </div>
                     </div>
@@ -116,39 +112,24 @@
                 <div class="w-full p-4 py-2">
                     <!--Metric Card-->
                     <div class="bg-pewter border border-gray-600 rounded-lg shadow-xl h-full">
-                        <h5 class="font-bold font-heading text-3xl text-gray-600 p-5">43 ulasan pada John Doe</h5>
+                        <h5 class="font-bold font-heading text-3xl text-gray-600 p-5">3 ulasan pada John Doe</h5>
                         <div class="text-justify mt-2 space-y-3">
                             <div class="border-b border-gray-500 px-5 pb-5">
-                                <span class="font-bold"> Murid A </span>
+                                <span class="font-bold"> M. Yasin </span>
                                 <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
-                                    Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
-                                </p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
-                                    Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
+                                    Gurunya keren banget, selain pandai matematika, ternyata juga bisa ngajarin gaming. Kerenn...
                                 </p>
                             </div>
                             <div class="border-b border-gray-500 px-5 pb-5">
-                                <span class="font-bold"> Murid B </span>
+                                <span class="font-bold"> Zahlul </span>
                                 <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
-                                    Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
-                                </p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
-                                    Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
+                                    Gak ada duanya, gurunya multitalen banget. Panutan
                                 </p>
                             </div>
                             <div class="px-5 pb-5">
-                                <span class="font-bold"> Murid C </span>
+                                <span class="font-bold"> Viona </span>
                                 <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
-                                    Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
-                                </p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus saepe sequi odio.
-                                    Numquam laborum fugiat at eveniet accusamus enim autem distinctio hic eaque quibusdam corrupti fuga, voluptatum assumenda! Asperiores, veniam!
+                                    Pokoknya luar biasa,, Gas jadi mentri pendidikan pakkk
                                 </p>
                             </div>
                         </div>
@@ -378,7 +359,7 @@
                     </tr>
                     <tr class="text-left">
                         <td class="border-2 border-gray-600 border-opacity-50 px-2 bg-blueGray bg-opacity-60">Biaya</td>
-                        <td class="border-2 border-gray-600 border-opacity-50 px-2">Rp <?= number_format($angka, 2, ',', '.'); ?></td>
+                        <td class="border-2 border-gray-600 border-opacity-50 px-2">Rp <?= number_format(75000, 2, ',', '.'); ?></td>
                     </tr>
                     <tr class="text-left">
                         <td class="border-2 border-gray-600 border-opacity-50 px-2 bg-blueGray bg-opacity-60">Hari</td>

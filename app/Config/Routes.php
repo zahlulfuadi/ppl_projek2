@@ -46,7 +46,7 @@ $routes->get('/search', 'Home::search');
 // $routes->post('/logout', 'Login::logout');
 
 
-$routes->get('/searchresults', 'Home::searchResult');
+$routes->get('/search-results', 'Home::searchResult');
 
 // Myth
 $routes->group('', ['filter' => 'login'], function ($routes) {
@@ -54,8 +54,9 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
 
 	// Profile
 	$routes->get('/myprofile', 'Profile::index');
-	$routes->get('/profilguru', 'Home::profilGuru');
-	$routes->post('/searchresults', 'Home::searchResult');
+	$routes->get('/edit-profile', 'Profile::editProfile');
+	$routes->post('/edit-profile', 'Profile::attemptEditProfile');
+	$routes->get('/profil-guru', 'Home::profilGuru');
 	// Akhir Profile
 });
 

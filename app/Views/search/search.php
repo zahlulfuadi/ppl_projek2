@@ -9,10 +9,10 @@
         <div class="container h-screen flex justify-center items-center -mt-64">
             <div class="w-full justify-self-center mx-auto">
                 <!-- form pencarian -->
-                <form action="#">
+                <form action="search-results" method="get">
                     <div class="flex flex-row justify-center mx-auto shadow-lg">
-                        <input type="text" class="py-4 pl-2 w-96 text-sm rounded-l-lg focus:outline-none" placeholder="Matematika">
-                        <input type="text" class="py-4 pl-2 w-96 text-sm border-l-2 border-gray-500 border-opacity-50 focus:outline-none" placeholder="DKI Jakarta">
+                        <input type="text" name="mapel" class="py-4 pl-2 w-96 text-sm rounded-l-lg focus:outline-none" placeholder="Matematika">
+                        <input type="text" name="lokasi" class="py-4 pl-2 w-96 text-sm border-l-2 border-gray-500 border-opacity-50 focus:outline-none" placeholder="DKI Jakarta">
                         <button type="submit" class="bg-white rounded-r-lg focus:outline-none">
                             <span class="bg-blue-800 flex items-center rounded-r-lg py-2 px-8 w-full h-full">
                                 <i class="fa fa-search text-white text-2xl"></i>

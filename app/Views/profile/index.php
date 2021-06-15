@@ -16,10 +16,10 @@
                     <div class="bg-pewter border border-gray-600 rounded-lg shadow-xl p-5 h-full">
                         <div class="flex flex-col items-center">
                             <div class="px-auto">
-                                <img src="http://gokubi.com/wp-content/uploads/2013/10/Steve-Andersen-Headshot-square1.jpeg" class="w-36 rounded-full p-2" alt="foto profil">
+                                <img src="https://kidsboost.org/wp-content/uploads/2018/11/Daegan-profile-square-1024x1024.jpg" class="w-36 rounded-full p-2" alt="foto profil">
                             </div>
                             <div class="flex flex-col text-center">
-                                <h5 class="font-bold font-heading text-3xl uppercase text-gray-600"><?= $profile['fullname']; ?></h5>
+                                <h5 class="font-bold font-heading text-3xl uppercase text-gray-600"><?= $profile['nama']; ?></h5>
                                 <span class="text-xs text-blue-700 font-base px-2 my-3">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <?= $profile['lokasi']; ?>
@@ -31,7 +31,8 @@
                                     <span class="text-left block leading-none text-sm font-semibold"> Bidang studi yang diajarkan: </span>
                                     <span class="text-left block text-xs italic"> (klik untuk lihat detail) </span>
                                     <div class="flex flex-row flex-wrap justify-around gap-y-1 py-2">
-                                        <?php foreach ($daftar_subjek as $subjek) : ?>
+                                        <?php
+                                        foreach ($daftar_subjek as $subjek) : ?>
                                             <span class="modal-open bg-white cursor-pointer text-gray-700 font-semibold text-xs px-4 py-0.5 border border-gray-600 rounded-md" data-toggle="modal" data-target="detailSubjekModal">
                                                 <?= $subjek['nama']; ?>
                                             </span>
@@ -105,7 +106,7 @@
                 </div>
 
                 <!--Body-->
-                <form action="#" class="">
+                <form action="/edit-profile" method="post" class="">
                     <table class="table-auto w-full text-sm -mx-10">
                         <tbody>
                             <tr>
@@ -113,7 +114,7 @@
                                     <label for="nama-lengkap">Nama Lengkap:</label>
                                 </td>
                                 <td class="pl-5 py-1">
-                                    <input id="nama-lengkap" name="nama-lengkap" type="text" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" value="John Doe">
+                                    <input id="nama-lengkap" name="nama" type="text" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" value="<?= $profile['nama']; ?>">
                                 </td>
                             </tr>
                             <tr>
@@ -121,23 +122,23 @@
                                     <label for="email">Email:</label>
                                 </td>
                                 <td class="pl-5 py-1">
-                                    <input id="email" name="email" type="email" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" value="johndoe@gmail.com">
+                                    <input id="email" name="email" type="email" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" value="<?= $profile['email']; ?>">
                                 </td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td class="flex items-start justify-end text-darkBlue">
                                     <label for="password">Password:</label>
                                 </td>
                                 <td class="pl-5 py-1">
-                                    <input id="password" name="password" type="password" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" value="password">
+                                    <input id="password" name="password" type="password" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" value="">
                                 </td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td class="flex items-start justify-end text-darkBlue">
                                     <label for="lokasi">Lokasi:</label>
                                 </td>
                                 <td class="pl-5 py-1">
-                                    <input id="lokasi" name="lokasi" type="text" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" value="DKI Jakarta">
+                                    <input id="lokasi" name="lokasi" type="text" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" value="<?= $profile['lokasi']; ?>">
                                 </td>
                             </tr>
                             <tr>
@@ -145,7 +146,7 @@
                                     <label for="deskripsi-diri">Deskripsi Diri:</label>
                                 </td>
                                 <td class="pl-5 py-1">
-                                    <textarea id="deskripsi-diri" name="deskripsi_diri" rows="4" class="whitespace-normal w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 max-h-28 px-2">ini harus satu baris</textarea>
+                                    <textarea id="deskripsi-diri" name="deskripsi_diri" rows="4" class="whitespace-normal w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 max-h-28 px-2"><?= $profile['deskripsi']; ?></textarea>
                                 </td>
                             </tr>
                         </tbody>
@@ -168,71 +169,77 @@
 
         <div class="modal-container bg-pewter w-full md:max-w-xl mx-auto md:mt-20 rounded shadow-lg z-50">
 
-            <!-- Add margin if you want to see some of the overlay behind the modal-->
             <div class="modal-content py-4 text-center px-6">
-                <!--Title-->
                 <div class="relative flex flex-col items-center pb-3">
                     <p class="text-2xl text-darkBlue font-bold font-heading">Detail Subjek</p>
                 </div>
 
-                <!--Body-->
                 <table class="table-auto w-full text-sm mt-5">
                     <tbody>
-                        <tr class="leading-loose">
-                            <td class="flex justify-end text-darkBlue font-semibold">
-                                Nama subjek:
+                        <tr>
+                            <td class="py-1.5 flex justify-end leading-5 text-darkBlue font-semibold">
+                                Nama mapel:
                             </td>
-                            <td class="pl-5">
-                                <span class="flex justify-start w-full text-gray-800 px-2">
-                                    Matematika
+                            <td class="py-1.5 pl-5 max-w-sm">
+                                <span class="flex justify-start text-left leading-5 w-full text-gray-800 px-2">
+                                    <?= $detail_mapel[0]['nama']; ?>
                                 </span>
                             </td>
                         </tr>
-                        <tr class="leading-loose">
-                            <td class="flex justify-end text-darkBlue font-semibold">
-                                Materi:
+                        <tr>
+                            <td class="py-1.5 flex justify-end leading-5 text-darkBlue font-semibold">
+                                Nama Subjek:
                             </td>
-                            <td class="pl-5">
-                                <span class="flex justify-start w-full text-gray-800 px-2">
-                                    Aljabar, Aritmatika, Geometri
+                            <td class="py-1.5 pl-5 max-w-sm">
+                                <span class="flex justify-start text-left leading-5 w-full text-gray-800 px-2">
+                                    <?php
+                                    foreach ($daftar_subjek as $key => $value) {
+                                        echo $value['nama'];
+                                        echo (($key + 1) != count($daftar_subjek)) ? ", " : "";
+                                    }
+                                    ?>
                                 </span>
                             </td>
                         </tr>
-                        <tr class="leading-loose">
-                            <td class="flex justify-end text-darkBlue font-semibold">
+                        <tr>
+                            <td class="py-1.5 flex justify-end leading-5 text-darkBlue font-semibold">
                                 Tingkat:
                             </td>
-                            <td class="pl-5">
-                                <span class="flex justify-start w-full text-gray-800 px-2">
-                                    SMA Kelas X, SMA Kelas XI, SMA Kelas XII
+                            <td class="py-1.5 pl-5 max-w-sm">
+                                <span class="flex justify-start text-left leading-5 w-full text-gray-800 px-2">
+                                    <?php
+                                    foreach ($detail_tingkat as $key => $value) {
+                                        echo $value;
+                                        echo (($key + 1) != count($detail_tingkat)) ? ", " : "";
+                                    } ?>
                                 </span>
                             </td>
                         </tr>
-                        <tr class="leading-loose">
-                            <td class="flex justify-end text-darkBlue font-semibold">
+                        <tr>
+                            <td class="py-1.5 flex justify-end leading-5 text-darkBlue font-semibold">
                                 Jenis kursus:
                             </td>
-                            <td class="pl-5">
-                                <span class="flex justify-start w-full text-gray-800 px-2">
-                                    Privat
+                            <td class="py-1.5 pl-5 max-w-sm">
+                                <span class="flex justify-start text-left leading-5 w-full text-gray-800 px-2">
+                                    <?= ucfirst($profile['jenis_kursus']); ?>
                                 </span>
                             </td>
                         </tr>
-                        <tr class="leading-loose">
-                            <td class="flex justify-end text-darkBlue font-semibold">
+                        <tr>
+                            <td class="py-1.5 flex justify-end leading-5 text-darkBlue font-semibold">
                                 Harga (per jam):
                             </td>
-                            <td class="pl-5">
-                                <span class="flex justify-start w-full text-gray-800 px-2">
-                                    Rp 75.000
+                            <td class="py-1.5 pl-5 max-w-sm">
+                                <span class="flex justify-start text-left leading-5 w-full text-gray-800 px-2">
+                                    Rp <?= number_format($profile['biaya_belajar'], 2, ',', '.'); ?>
                                 </span>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <!--Footer-->
+
                 <div class="flex flex-col gap-y-2 items-center pt-20 pb-10 text-sm">
-                    <span class="modal-open cursor-pointer w-36 text-center py-0.5 rounded-xl bg-darkBlue text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none" data-toggle="modal" data-target="editSubjekModal">
+                    <span class="modal-open cursor-pointer w-36 text-center py-0.5 rounded-xl bg-darkBlue text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none" onclick="window.location.href='<?= base_url('/edit-subjek'); ?>'">
                         Edit
                     </span>
                     <span class="modal-close cursor-pointer w-36 text-center py-0.5 rounded-xl bg-blueGray text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none">
@@ -245,28 +252,32 @@
 
 
     <!-- Modal Edit Subjek -->
-    <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center overflow-y-auto" id="editSubjekModal">
+    <!-- <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center overflow-y-auto" id="editSubjekModal">
         <div class="modal-overlay modal-close absolute w-full h-full bg-gray-900 opacity-75 bg-scroll"></div>
 
         <div class="modal-container bg-pewter w-full md:max-w-xl mx-auto md:mt-20 rounded shadow-lg z-50">
 
-            <!-- Add margin if you want to see some of the overlay behind the modal-->
             <div class="modal-content py-4 text-center px-6">
-                <!--Title-->
                 <div class="relative flex flex-col items-center pb-3">
                     <p class="text-2xl text-darkBlue font-bold font-heading">Edit Subjek</p>
                 </div>
 
-                <!--Body-->
                 <form action="#" class="mt-5">
                     <table class="table-auto w-full text-sm">
                         <tbody>
                             <tr class="leading-loose">
                                 <td class="flex justify-end text-darkBlue font-semibold">
-                                    <label for="nama-subjek">Nama subjek:</label>
+                                    <label for="nama-subjek">Nama mapel:</label>
                                 </td>
                                 <td class="pl-5">
-                                    <input id="nama-subjek" name="nama-subjek" type="text" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" value="Matematika">
+                                    <?php
+                                    // $mapel = '';
+                                    // foreach ($detail_mapel as $key => $value) {
+                                    //     $mapel .= $value['nama'];
+                                    //     $mapel .= (($key + 1) != count($detail_mapel)) ? ", " : "";
+                                    // }
+                                    ?>
+                                    <input id="nama-subjek" name="nama-subjek" type="text" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" value="<?= $detail_mapel[0]['nama']; ?>">
                                 </td>
                             </tr>
                             <tr class="leading-loose">
@@ -274,7 +285,19 @@
                                     <label for="materi">Materi:</label>
                                 </td>
                                 <td class="pl-5">
-                                    <input id="materi" name="materi" type="text" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" value="Aljabar, Aritmatika, Geometri">
+                                    <select id="materi" name="materi[]" class="w-full bg-white text-gray-800 border-2 border-opacity-50 border-gray-600 px-2" multiple>
+                                    <?php foreach ($daftar_subjek as $key => $value) :
+                                    //echo "<option value='" . $value['nama'] . "' "">ENGLISH</option>";
+                                    //echo (($key + 1) != count($daftar_subjek)) ? ", " : "";
+                                    endforeach;
+                                    ?>
+                                        <option value='english' selected>ENGLISH</option>
+                                        <option value='maths' selected>MATHS</option>
+                                        <option value='computer'>COMPUTER</option>
+                                        <option value='physics'>PHYSICS</option>
+                                        <option value='chemistry'>CHEMISTRY</option>
+                                        <option value='hindi'>HINDI</option>
+                                    </select>
                                 </td>
                             </tr>
                             <tr class="leading-loose">
@@ -316,7 +339,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <!--Footer-->
+
                     <div class="flex flex-col gap-y-2 items-center pt-20 pb-10 text-sm">
                         <button type="submit" class="cursor-pointer w-36 text-center py-0.5 rounded-xl bg-darkBlue text-white border-2 border-darkBlue hover:bg-white hover:text-darkBlue focus:outline-none">
                             Simpan
@@ -329,7 +352,7 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Modal Tambah Subjek -->
     <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center overflow-y-auto" id="tambahSubjekModal">
